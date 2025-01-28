@@ -1,0 +1,113 @@
+body {
+    background-color: #1b1717;
+}
+
+.button-color {
+    background-color: #837b7b; /* Replace with your desired red shade */
+    color: white; /* Optional: Set text color for contrast */
+}
+  
+.button-color-clicked {
+    background-color: #19b493; /* Replace with your desired blue shade */
+    color: white; /* Optional: Set text color for contrast */
+}
+
+.container {
+    background-color: #282525;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px #917373;
+    max-width: 300px;
+    margin: 30px auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Perde Alanı */
+.screen {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Koltuk Seçim Alanı */
+.seating-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+}
+
+.seat {
+    position: relative;
+}
+
+.seat-input {
+    display: none; /* Input'u gizleriz */
+}
+
+.seat-box {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #19b493; /* Boş koltuk rengi */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Seçili koltuk rengi */
+.seat-input:checked + .seat-box {
+    background-color: #810b91; /* Seçili koltuk rengi */
+}
+
+/* Dolu koltuk */
+.seat.disabled {
+    width: 30px;
+    height: 30px;
+    background-color: #aaa; /* Dolu koltuk rengi */
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+
+/* Tarih ve Seans Alanı */
+.date-selection {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.seans-selection button {
+    margin: 5px;
+}
+
+.submitTicketButton {
+    background-color: #837b7b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; /* Space above the button */
+}
+
+.submitTicketButton:hover {
+    background-color: #b6acac;
+    color: black;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center; /* Yatayda ortala */
+    align-items: center;     /* Dikeyde ortala */
+    margin-top: 20px;        /* Üst boşluk (isteğe bağlı) */
+}

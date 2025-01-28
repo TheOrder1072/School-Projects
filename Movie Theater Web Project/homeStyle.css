@@ -1,0 +1,118 @@
+body {
+    background-color: #1b1717;
+    background-repeat: initial;
+    font-family: Arial, sans-serif;
+}
+
+/* Başlıklar için stil */
+h1, h2, h3 {
+    font-weight: bold;
+    color: #e3e3e3;
+}
+
+.header-text {
+    position: relative;
+    top: 30px;
+    left: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #e3e3e3;
+}
+
+.slider {
+    position: relative;
+    max-width: 90%;
+    margin: 50px auto 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1b1717, #282828);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Slaytları yatayda hizalamak ve kaydırmak için */
+.slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.slides:hover {
+    filter: brightness(0.9); /* Hafif karartma efekti */
+}
+
+
+/* Her bir slaytın genişliğini ekran genişliğine göre ayarlıyoruz */
+.slide {
+    flex: 0 0 auto;
+    width: 33.33%; /* 3 film görüntülenecek şekilde her birinin genişliğini üçte bir yapıyoruz */
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Görsellerin sabit boyutunu belirliyoruz */
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+}
+
+/* Slider navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Style for each slide when hovered */
+.slide .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show the overlay and buttons on hover */
+.slide:hover .overlay {
+    opacity: 1;
+}
+
+/* Button style */
+.overlay button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #19b493;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.overlay button:hover {
+    background-color: #00ffc8;
+}

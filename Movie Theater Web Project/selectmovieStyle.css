@@ -1,0 +1,65 @@
+.film-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 30px; /* Space between cards */
+    padding: 50px;
+}
+
+.film-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #2b2a2a;
+    box-shadow: 0 0px 6px #917373;
+    border-radius: 10px;
+}
+
+.film-card img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.film-card h3 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for long text */
+    max-width: 100%; /* Keep text within container width */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-ticket {
+    background-color: #19b493;
+    color: #111;
+}
+
+.buy-ticket:hover {
+    background-color: #00ffc8;
+}
+
+.details {
+    background-color: #444;
+    color: #fff;
+}
+
+.details:hover {
+    background-color: #989898;
+    color: #fff;
+}

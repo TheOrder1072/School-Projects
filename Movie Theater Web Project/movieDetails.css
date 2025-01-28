@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1717;
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #000;
+    align-items: center;
+}
+
+.film-container {
+    display: flex;
+    padding: 50px;
+    gap: 70px; /* Increased gap for more spacing */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.film-poster img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px; /* Added spacing below poster */
+}
+
+.film-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between movie details */
+}
+
+.film-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tags span {
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.movie-summary h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.movie-summary p {
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-ticket {
+    background-color: #19b493;
+    color: #111;
+}
+
+.buy-ticket:hover {
+    background-color: #00ffc8;
+}
+
+.watch-trailer {
+    background-color: #444;
+    color: #fff;
+}
+
+.watch-trailer:hover {
+    background-color: #989898;
+    color: #fff;
+}
+
+.rating-section {
+    margin-top: 30px;
+}
+
+.rating-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.progress p {
+    margin: 10px 0; /* Added margin to space out progress bars */
+    font-size: 1rem;
+}
+
+.progress progress {
+    width: 100%; /* Ensure progress bars take the full width of the parent container */
+    height: 20px; /* You can adjust the height as needed */
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #19b493; /* Color for the filled part of the progress bar */
+}
+
+progress::-moz-progress-bar {
+    background-color: #19b493; /* Color for the filled part of the progress bar */
+}

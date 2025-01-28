@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #1b1717;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /*Adjust for div's size */
+    background: #282525;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px #917373;
+    width: 350px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.formElement {
+    margin-bottom: 15px;
+}
+
+.formElement label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.submitButton {
+    background-color: #837b7b;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin-left: 128px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submitButton:hover {
+    background-color: #b6acac;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #cacaca;
+}
+
+.footer a {
+    color: #960000;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #ab9797;
+    border-radius: 4px;
+    background-color: #5c5454;
+
+    color: #f7ed96;
+}
+
+/* Input kutusuna odaklanıldığında (focus) stil değişikliği */
+.textarea:focus {
+    background-color: #5c5454; /* Arka plan rengi değişir */
+    border-color: #24c304; /* Kenar rengi değişir */
+    color: #f7ed96; /* Yazı rengi değişir */
+}
+
+::placeholder {
+    color: #9d9090;
+    opacity: 1;
+}
