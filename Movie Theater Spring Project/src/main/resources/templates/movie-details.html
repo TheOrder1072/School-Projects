@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie Details</title>
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="barStyle.css" th:href="@{/barStyle.css}" />
+	<link rel="stylesheet" href="movieDetailsStyle.css" th:href="@{/movieDetailsStyle.css}">
+</head>
+
+<body>
+	<div class="w3-bar" style="position: fixed;">
+		<a href="home" class="w3-bar-item w3-button w3-padding-16">Home</a>
+		<a href="about" class="w3-bar-item w3-button w3-padding-16">About</a>
+		<a href="select-movie" class="w3-bar-item w3-button w3-padding-16">Movies</a>
+		<a href="movie-details" class="w3-bar-item w3-button w3-padding-16">Movie Details</a>
+
+    	<div th:if="${loggedInUser != null}">
+        	<a href="my-tickets" class="w3-bar-item w3-button w3-padding-16 w3-right">My Tickets</a>
+        	<a href="logout" class="w3-bar-item w3-button w3-padding-16 w3-right">Logout</a>
+    	</div>
+
+    	<div th:if="${loggedInUser == null}">
+        	<a href="register" class="w3-bar-item w3-button w3-padding-16 w3-right">Register</a>
+        	<a href="login" class="w3-bar-item w3-button w3-padding-16 w3-right">Login</a>
+    	</div>
+	</div>
+
+	<div class="film-container" id="M1">
+		<div class="film-poster">
+			<img th:src="@{${movie1Poster}}" th:alt="${movie1Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie1Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie1Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie1Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie1Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie1Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie1Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie1Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie1Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie1RatingImdb}" max="100"></progress> <span
+						th:text="${movie1RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie1RatingRotten}" max="100"></progress> <span
+						th:text="${movie1RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie1RatingMeta}" max="100"></progress> <span
+						th:text="${movie1RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie1RatingLetter}" max="100"></progress> <span
+						th:text="${movie1RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M2">
+		<div class="film-poster">
+			<img th:src="@{${movie2Poster}}" th:alt="${movie2Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie2Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie2Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie2Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie2Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie2Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie2Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie2Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie2Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie2RatingImdb}" max="100"></progress> <span
+						th:text="${movie2RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie2RatingRotten}" max="100"></progress> <span
+						th:text="${movie2RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie2RatingMeta}" max="100"></progress> <span
+						th:text="${movie2RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie2RatingLetter}" max="100"></progress> <span
+						th:text="${movie2RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M3">
+		<div class="film-poster">
+			<img th:src="@{${movie3Poster}}" th:alt="${movie3Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie3Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie3Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie3Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie3Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie3Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie3Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie3Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie3Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie3RatingImdb}" max="100"></progress> <span
+						th:text="${movie3RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie3RatingRotten}" max="100"></progress> <span
+						th:text="${movie3RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie3RatingMeta}" max="100"></progress> <span
+						th:text="${movie3RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie3RatingLetter}" max="100"></progress> <span
+						th:text="${movie3RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M4">
+		<div class="film-poster">
+			<img th:src="@{${movie4Poster}}" th:alt="${movie4Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie4Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie4Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie4Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie4Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie4Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie4Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie4Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie4Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie4RatingImdb}" max="100"></progress> <span
+						th:text="${movie4RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie4RatingRotten}" max="100"></progress> <span
+						th:text="${movie4RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie4RatingMeta}" max="100"></progress> <span
+						th:text="${movie4RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie4RatingLetter}" max="100"></progress> <span
+						th:text="${movie4RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M5">
+		<div class="film-poster">
+			<img th:src="@{${movie5Poster}}" th:alt="${movie5Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie5Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie5Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie5Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie5Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie5Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie5Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie5Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie5Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie5RatingImdb}" max="100"></progress> <span
+						th:text="${movie5RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie5RatingRotten}" max="100"></progress> <span
+						th:text="${movie5RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie5RatingMeta}" max="100"></progress> <span
+						th:text="${movie5RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie5RatingLetter}" max="100"></progress> <span
+						th:text="${movie5RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="film-container" id="M6">
+		<div class="film-poster">
+			<img th:src="@{${movie6Poster}}" th:alt="${movie6Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie6Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie6Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie6Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie6Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie6Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie6Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie6Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie6Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie6RatingImdb}" max="100"></progress> <span
+						th:text="${movie6RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie6RatingRotten}" max="100"></progress> <span
+						th:text="${movie6RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie6RatingMeta}" max="100"></progress> <span
+						th:text="${movie6RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie6RatingLetter}" max="100"></progress> <span
+						th:text="${movie6RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M7">
+		<div class="film-poster">
+			<img th:src="@{${movie7Poster}}" th:alt="${movie7Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie7Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie7Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie7Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie7Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie7Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie7Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie7Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie7Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie7RatingImdb}" max="100"></progress> <span
+						th:text="${movie7RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie7RatingRotten}" max="100"></progress> <span
+						th:text="${movie7RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie7RatingMeta}" max="100"></progress> <span
+						th:text="${movie7RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie7RatingLetter}" max="100"></progress> <span
+						th:text="${movie7RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M8">
+		<div class="film-poster">
+			<img th:src="@{${movie8Poster}}" th:alt="${movie8Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie8Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie8Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie8Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie8Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie8Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie8Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie8Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie8Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie8RatingImdb}" max="100"></progress> <span
+						th:text="${movie8RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie8RatingRotten}" max="100"></progress> <span
+						th:text="${movie8RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie8RatingMeta}" max="100"></progress> <span
+						th:text="${movie8RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie8RatingLetter}" max="100"></progress> <span
+						th:text="${movie8RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M9">
+		<div class="film-poster">
+			<img th:src="@{${movie9Poster}}" th:alt="${movie9Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie9Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie9Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie9Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie9Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie9Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie9Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie9Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie9Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie9RatingImdb}" max="100"></progress> <span
+						th:text="${movie9RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie9RatingRotten}" max="100"></progress> <span
+						th:text="${movie9RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie9RatingMeta}" max="100"></progress> <span
+						th:text="${movie9RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie9RatingLetter}" max="100"></progress> <span
+						th:text="${movie9RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="film-container" id="M10">
+		<div class="film-poster">
+			<img th:src="@{${movie10Poster}}" th:alt="${movie10Name}">
+		</div>
+
+		<div class="film-info">
+			<h1 th:text="${movie10Name}"></h1>
+			<div class="tags">
+				<span>IMAX</span>
+				<span>3D</span>
+				<span>2D</span>
+			</div>
+			<p><strong>Director:</strong> <span th:text="${movie10Director}"></span></p>
+			<p><strong>Cast:</strong> <span th:text="${movie10Cast}"></span></p>
+			<p><strong>Genre:</strong> <span th:text="${movie10Genre}"></span></p>
+			<p><strong>Duration:</strong> <span th:text="${movie10Duration}"></span></p>
+
+			<div class="movie-summary">
+				<h2>Movie Summary</h2>
+				<p th:text="${movie10Summary}"></p>
+			</div>
+
+			<div class="buttons">
+				<form action="book-ticket" method="POST" style="display:inline-block;">
+					<input type="hidden" name="movie_id" th:value="${movie10Id}">
+					<button type="submit" class="buy-ticket">Book Ticket</button>
+				</form>
+				<button class="watch-trailer" th:attr="onclick=|window.open('${movie10Trailer}', '_blank')|">Watch
+					Trailer</button>
+			</div>
+		</div>
+
+		<div class="rating-section">
+			<h2><span>Ratings</span></h2>
+			<div class="progress">
+				<p>IMDB: <progress th:value="${movie10RatingImdb}" max="100"></progress> <span
+						th:text="${movie10RatingImdb}"></span></p>
+				<p>Rotten Tomatoes: <progress th:value="${movie10RatingRotten}" max="100"></progress> <span
+						th:text="${movie10RatingRotten}"></span></p>
+				<p>metacritic: <progress th:value="${movie10RatingMeta}" max="100"></progress> <span
+						th:text="${movie10RatingMeta}"></span></p>
+				<p>Letterboxd: <progress th:value="${movie10RatingLetter}" max="100"></progress> <span
+						th:text="${movie10RatingLetter}"></span></p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

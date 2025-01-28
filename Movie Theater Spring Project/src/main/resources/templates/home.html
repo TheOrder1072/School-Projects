@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie Theater Home Page</title>
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="barStyle.css" th:href="@{/barStyle.css}" />
+	<link rel="stylesheet" href="homeStyle.css" th:href="@{/homeStyle.css}" />
+</head>
+
+<body>
+	
+	<div th:if="${loginSuccess}">
+        <script>
+            alert("[[${loginSuccess}]]");
+        </script>
+    </div>
+    
+    <div th:if="${logoutSuccess}">
+        <script>
+            alert("[[${logoutSuccess}]]");
+        </script>
+    </div>
+
+	<div class="w3-bar">
+		<a href="home" class="w3-bar-item w3-button w3-padding-16">Home</a>
+		<a href="about" class="w3-bar-item w3-button w3-padding-16">About</a>
+		<a href="select-movie" class="w3-bar-item w3-button w3-padding-16">Movies</a>
+		<a href="movie-details" class="w3-bar-item w3-button w3-padding-16">Movie Details</a>
+
+    	<div th:if="${loggedInUser != null}">
+        	<a href="my-tickets" class="w3-bar-item w3-button w3-padding-16 w3-right">My Tickets</a>
+        	<a href="logout" class="w3-bar-item w3-button w3-padding-16 w3-right">Logout</a>
+    	</div>
+
+    	<div th:if="${loggedInUser == null}">
+        	<a href="register" class="w3-bar-item w3-button w3-padding-16 w3-right">Register</a>
+        	<a href="login" class="w3-bar-item w3-button w3-padding-16 w3-right">Login</a>
+    	</div>
+	</div>
+
+	<h1 style="text-align:center; font-weight: bold; color:white">Movies in Theaters</h1>
+
+	<div class="slider" style="margin-top: 20px">
+		<div class="slides">
+
+			<div class="slide">
+				<img th:src="@{${movie1Poster}}" th:alt="${movie1Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M1'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie1Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie2Poster}}" th:alt="${movie2Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M2'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie2Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie3Poster}}" th:alt="${movie3Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M3'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie3Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie4Poster}}" th:alt="${movie4Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M4'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie4Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+			
+			<div class="slide">
+				<img th:src="@{${movie5Poster}}" th:alt="${movie5Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M5'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie5Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie6Poster}}" th:alt="${movie6Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M6'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie6Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie7Poster}}" th:alt="${movie7Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M7'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie7Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie8Poster}}" th:alt="${movie8Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M8'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie8Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+			
+			<div class="slide">
+				<img th:src="@{${movie9Poster}}" th:alt="${movie9Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M9'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie9Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img th:src="@{${movie10Poster}}" th:alt="${movie10Name}">
+				<div class="overlay">
+					<button onclick="window.location.href='movie-details#M10'">View Details</button>
+					<form action="book-ticket" method="POST" style="display:inline-block;">
+						<input type="hidden" name="movie_id" th:value="${movie10Id}">
+						<button type="submit" class="buy-ticket">Book Ticket</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+		<button class="next" onclick="moveSlide(1)">&#10095;</button>
+	</div>
+
+	<br>
+
+	<script>
+		let currentSlide = 0;
+		const slideCount = document.querySelectorAll('.slide').length;
+		const slidesToShow = 3;
+		const slidesWidth = 100 / slidesToShow;
+
+		function moveSlide(direction) {
+			const totalSlides = slideCount;
+			currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+
+			const slidesContainer = document.querySelector('.slides');
+			slidesContainer.style.transform = 'translateX(' + (-currentSlide * slidesWidth) + '%)';
+		}
+
+		setInterval(() => {moveSlide(1);}, 6000);
+	</script>
+</body>
+
+</html>
